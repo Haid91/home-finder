@@ -2,11 +2,12 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import ErrorPage from './pages/ErrorPage';
+import Home from './pages/Home.jsx';
+import Profile from './pages/Profile.jsx';
+import Signup from './pages/Signup.jsx';
+import Login from './pages/Login.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import About from './pages/About.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,23 +18,33 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      }, {
+      }, 
+      {
         path: '/login',
         element: <Login />
-      }, {
+      }, 
+      {
         path: '/signup',
         element: <Signup />
-      }, {
+      }, 
+      {
         path: '/profiles/:profileId',
         element: <Profile />
-      }, {
+      }, 
+      {
         path: '/me',
         element: <Profile />
+      }, // <-- This comma was missing
+      {
+        path: '/about',
+        element: <About />
       }
     ]
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <RouterProvider router={router} />
-)
+);
+
