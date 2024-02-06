@@ -7,8 +7,12 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
+import $ from 'jquery';
+import 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+import 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js'
 
-import Header from './components/Header';
+import Navbar from './components/Navbar';
+import { useEffect, useState } from 'react';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -35,12 +39,20 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [type, setType]= useState('Buy')
+  function handleChange(event){
+    setType(event.target.value)
+  }
+  useEffect (()=>{
+    localStorage.setItem('type',type)
+  })
   return (
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
+        <Navbar type={type} handleChange={handleChange} />
+        {console.log (type, 'type')}
         <div className="container">
-          <Outlet />
+          <Outlet type={type}  />
         </div>
         {/* <Footer /> */}
       </div>
