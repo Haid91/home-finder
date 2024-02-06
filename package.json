@@ -12,8 +12,10 @@
   },
   "author": "",
   "license": "ISC",
-  
   "devDependencies": {
     "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "render-build": "^0.1.0"
   }
 }

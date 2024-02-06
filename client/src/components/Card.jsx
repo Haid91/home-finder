@@ -12,7 +12,7 @@ function Card () {
         <a></a>
       </div>
       <div class="description">
-        Explore new and exiting homes to buy.
+        Explore new and existing homes to buy.
       </div>
     </div>
     <div class="extra content">
@@ -25,9 +25,9 @@ function Card () {
       </span>
     </div>
   </div>
-  {/* <div class="card">
+  <div class="card">
     <div class="image">
-      <img src="src/img/House2.jpg"/>
+      <img src="img/House2.jpg"/>
     </div>
     <div class="content">
       <div class="header">Sell</div>
@@ -35,7 +35,7 @@ function Card () {
         <span class="date">C</span>
       </div>
       <div class="description">
-        Molly is a personal assistant living in Paris.
+        Sell your property 
       </div>
     </div>
     <div class="extra content">
@@ -50,7 +50,7 @@ function Card () {
   </div>
   <div class="card">
     <div class="image">
-      <img src="src/img/House.jpg"/>
+      <img src="img/House.jpg"/>
     </div>
     <div class="content">
       <div class="header">Rent</div>
@@ -58,7 +58,7 @@ function Card () {
         <a>C</a>
       </div>
       <div class="description">
-        Elyse is a copywriter working in New York.
+        Get the best Rent prices out there 
       </div>
     </div>
     <div class="extra content">
@@ -70,7 +70,7 @@ function Card () {
         151 
       </span>
     </div>
-  </div> */}
+  </div>
 </div>
         </>
     )

@@ -1,20 +1,20 @@
-function Navbar({handleChange, type}) {
+function Navbar({ handleChange, type }) {
     return (
         <>
             <div class="ui secondary  menu">
-                <a class="active item">
+                <a href="/" class="active item">
                     Home
                 </a>
-                <a class="item">
+                <a href="/about.html" class="item">
                     About
                 </a>
-                <a class="item">
+                <a href="/listing.html" class="item">
                     Listing
                 </a>
-                <a class="item">
+                <a href="/profile.html" class="item">
                     Profile
                 </a>
-                <a class="item">
+                <a href="/signup.html" class="item">
                     Sign up
                 </a>
 
@@ -27,7 +27,7 @@ function Navbar({handleChange, type}) {
                             <select name="type" id="type" value={type} onChange={handleChange}>
                                 <option value="buy">Buy</option>
                                 <option value="rent">Rent</option>
-                                
+
                             </select>
                             <input type="text" placeholder="Search..." />
                             <i class="search link icon"></i>
