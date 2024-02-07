@@ -13,6 +13,7 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js
 
 import Navbar from './components/Navbar';
 import { useEffect, useState } from 'react';
+import searchProperties from './utils/api';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -39,20 +40,14 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [type, setType]= useState('Buy')
-  function handleChange(event){
-    setType(event.target.value)
-  }
-  useEffect (()=>{
-    localStorage.setItem('type',type)
-  })
+  
   return (
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
-        <Navbar type={type} handleChange={handleChange} />
-        {console.log (type, 'type')}
+        
+       
         <div className="container">
-          <Outlet type={type}  />
+          <Outlet  />
         </div>
         {/* <Footer /> */}
       </div>

@@ -1,4 +1,7 @@
-function Card () {
+import parse from 'html-react-parser';
+
+function Card ({list}) {
+    console.log (list)
     return (
         <>
         <div class="ui link cards">
@@ -7,12 +10,13 @@ function Card () {
       <img src="img/House3.avif"/>
     </div>
     <div class="content">
-      <div class="header">Buy</div>
+      <div class="header">{list.channel} <i class="bookmark empty icon"></i>
+<i class="bookmark icon"></i> </div>
       <div class="meta">
-        <a></a>
+        <a>{list.advertising?list.advertising.priceRange:'contact agent for price'}</a>
       </div>
       <div class="description">
-        Explore new and existing homes to buy.
+        {parse(list.description)}
       </div>
     </div>
     <div class="extra content">
@@ -25,7 +29,7 @@ function Card () {
       </span>
     </div>
   </div>
-  <div class="card">
+  {/* <div class="card">
     <div class="image">
       <img src="img/House2.jpg"/>
     </div>
@@ -70,7 +74,7 @@ function Card () {
         151 
       </span>
     </div>
-  </div>
+  </div> */}
 </div>
         </>
     )

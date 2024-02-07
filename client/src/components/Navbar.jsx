@@ -5,18 +5,20 @@ function Navbar({ handleChange, type }) {
                 <a href="/" class="active item">
                     Home
                 </a>
-                <a href="/about.html" class="item">
-                    About
-                </a>
+                
                 <a href="/listing.html" class="item">
-                    Listing
+                    My favourite Listing
                 </a>
                 <a href="/profile.html" class="item">
-                    Profile
+                    Login
                 </a>
                 <a href="/signup.html" class="item">
                     Sign up
                 </a>
+
+                <a class="ui item">
+                        Logout
+                    </a>
 
                 <div class="right menu">
                     <div class="item">
@@ -29,13 +31,11 @@ function Navbar({ handleChange, type }) {
                                 <option value="rent">Rent</option>
 
                             </select>
-                            <input type="text" placeholder="Search..." />
-                            <i class="search link icon"></i>
+                            {/* <input type="text" placeholder="Search..." />
+                            <i class="search link icon"></i> */}
                         </div>
                     </div>
-                    <a class="ui item">
-                        Logout
-                    </a>
+                    
                 </div>
 
             </div>

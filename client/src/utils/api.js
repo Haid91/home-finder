@@ -13,7 +13,7 @@ async function searchProperties(channel, location) {
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
-        return result.tieredResults[0].results 
+        return result.tieredResults[0].results.filter((list, i)=>i<6) 
     } catch (error) {
         console.error(error);
         return error
