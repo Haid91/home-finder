@@ -2,27 +2,33 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Navbar from '../components/Navbar';
 
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+  const [type, setType]=useState(localStorage.getItem('type')||'')
+  const [listings, setlistings]=useState([])
+  const [AddUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleChange =async (event) => {
     const { name, value } = event.target;
 
     setFormState({
       ...formState,
       [name]: value,
     });
+    setType(event.target.value)
+    const data=await searchProperties(event.target.value, 'Sydney')
+    setlistings(data)
   };
 
   // submit form
@@ -31,11 +37,11 @@ const Signup = () => {
     console.log(formState);
 
     try {
-      const { data } = await addProfile({
+      const { data } = await AddUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -44,6 +50,7 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
+      <Navbar type={type} handleChange={handleChange} />
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
@@ -57,9 +64,9 @@ const Signup = () => {
                 <input
                   className="form-input"
                   placeholder="Your username"
-                  name="name"
+                  name="username"
                   type="text"
-                  value={formState.name}
+                  value={formState.username}
                   onChange={handleChange}
                 />
                 <input

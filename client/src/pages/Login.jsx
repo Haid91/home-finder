@@ -4,19 +4,26 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Navbar from '../components/Navbar';
+import searchProperties from '../utils/api'
 
-const Login = (props) => {
+const LoginUser = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
-
+  const [Login, { error, data }] = useMutation(LOGIN_USER);
+  const [type, setType]=useState(localStorage.getItem('type')||'')
+  
+  const [listings, setlistings]=useState([])
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleChange =async (event) => {
     const { name, value } = event.target;
 
     setFormState({
       ...formState,
       [name]: value,
     });
+    setType(event.target.value)
+    const data=await searchProperties(event.target.value, 'Sydney')
+    setlistings(data)
   };
 
   // submit form
@@ -24,7 +31,7 @@ const Login = (props) => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data } = await Login({
         variables: { ...formState },
       });
 
@@ -43,6 +50,7 @@ const Login = (props) => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
+      <Navbar type={type} handleChange={handleChange} />
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
@@ -91,4 +99,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default LoginUser;

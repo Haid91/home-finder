@@ -9,10 +9,10 @@ function Navbar({ handleChange, type }) {
                 <a href="/listing.html" class="item">
                     My favourite Listing
                 </a>
-                <a href="/profile.html" class="item">
+                <a href="/login" class="item">
                     Login
                 </a>
-                <a href="/signup.html" class="item">
+                <a href="/signup" class="item">
                     Sign up
                 </a>
 

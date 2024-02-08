@@ -4,7 +4,7 @@ const listingSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      
     },
     description: {
       type: String,
@@ -16,11 +16,11 @@ const listingSchema = new mongoose.Schema(
     },
     regularPrice: {
       type: Number,
-      required: true,
+      
     },
     discountPrice: {
       type: Number,
-      required: true,
+      
     },
     bathrooms: {
       type: Number,
@@ -32,11 +32,11 @@ const listingSchema = new mongoose.Schema(
     },
     furnished: {
       type: Boolean,
-      required: true,
+      
     },
     parking: {
       type: Boolean,
-      required: true,
+      
     },
     type: {
       type: String,
@@ -44,15 +44,15 @@ const listingSchema = new mongoose.Schema(
     },
     offer: {
       type: Boolean,
-      required: true,
+      
     },
     imageUrls: {
       type: Array,
-      required: true,
+      
     },
     userRef: {
       type: String,
-      required: true,
+      
     },
   },
   { timestamps: true }

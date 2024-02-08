@@ -1,4 +1,4 @@
-const User = require('./user.model.js');
-const Listing = require('./listing.model.js');
+const User = require('./user.js');
+const Listing = require('./listing.js');
 
 module.exports = { User, Listing };
