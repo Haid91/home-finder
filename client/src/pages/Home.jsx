@@ -3,14 +3,13 @@ import Card from "../components/Card"
 import { useState, useEffect } from 'react';
 // import ProfileList from '../components/ProfileList';
 import Navbar from '../components/Navbar'
-import { QUERY_PROFILES } from '../utils/queries';
+
 import searchProperties from '../utils/api'
 
 
 const Home = () => {
   
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
+ 
 const [propertyData, setPropertyData] = useState ([])
 const [type, setType]=useState(localStorage.getItem('type')||'')
 const [listings, setlistings]=useState([])
@@ -34,7 +33,7 @@ const [listings, setlistings]=useState([])
         
           {console.log(listings[0],'listings')}
           {listings.length>0?listings.map((list)=>{
-            return <div className="col-12 col-md-4 my-3"> <Card list={list} /></div>
+            return <div className="col-12 col-md-4 my-3"> <Card list={list} page="home" /></div>
           }):'no search found'}
           
           {/* {loading ? (

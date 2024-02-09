@@ -8,14 +8,17 @@ mutation AddUser($username: String!, $email: String!, $password: String!) {
 }
 `;
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
+export const ADD_LISTING = gql`
+mutation AddListing($channel: String!, $description: String!, $priceRange: String!, $listingId: String!) {
+  addListing(channel: $channel, description: $description, priceRange: $priceRange, listingId:$listingId) {
+    listings {
       _id
-      name
-      skills
+      channel
+      description
+      priceRange
     }
   }
+}
 `;
 export const LOGIN_USER = gql`
 mutation Login($email: String!, $password: String!) {
@@ -25,12 +28,15 @@ mutation Login($email: String!, $password: String!) {
 }
 `;
 
-export const REMOVE_SKILL = gql`
-  mutation removeSkill($skill: String!) {
-    removeSkill(skill: $skill) {
+export const REMOVE_LISTING = gql`
+mutation RemoveListing($listingId: ID!) {
+  removeListing(listingId: $listingId) {
+    listings {
       _id
-      name
-      skills
+      channel
+      description
+      priceRange
     }
   }
+}
 `;

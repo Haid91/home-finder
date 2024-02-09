@@ -6,7 +6,7 @@ function Navbar({ handleChange, type }) {
                     Home
                 </a>
                 
-                <a href="/listing.html" class="item">
+                <a href="/me" class="item">
                     My favourite Listing
                 </a>
                 <a href="/login" class="item">

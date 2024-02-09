@@ -3,11 +3,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
-import Profile from './pages/Profile.jsx';
 import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import About from './pages/About.jsx';
+import Listing from './pages/Listing.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,13 +27,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, 
-      {
-        path: '/profiles/:profileId',
-        element: <Profile />
-      }, 
+      
       {
         path: '/me',
-        element: <Profile />
+        element: <Listing />
       }, // <-- This comma was missing
       {
         path: '/about',

@@ -1,8 +1,8 @@
 const mongoose = require ('mongoose');
-
+const {Schema}=require("mongoose")
 const listingSchema = new mongoose.Schema(
   {
-    name: {
+    channel: {
       type: String,
       
     },
@@ -10,52 +10,16 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    address: {
-      type: String,
-      required: true,
-    },
-    regularPrice: {
-      type: Number,
-      
-    },
-    discountPrice: {
-      type: Number,
-      
-    },
-    bathrooms: {
-      type: Number,
-      required: true,
-    },
-    bedrooms: {
-      type: Number,
-      required: true,
-    },
-    furnished: {
-      type: Boolean,
-      
-    },
-    parking: {
-      type: Boolean,
-      
-    },
-    type: {
-      type: String,
-      required: true,
-    },
-    offer: {
-      type: Boolean,
-      
-    },
-    imageUrls: {
-      type: Array,
-      
-    },
-    userRef: {
+     
+    priceRange: {
       type: String,
       
     },
+    listingId: {
+      type: String
+    }
+    
   },
-  { timestamps: true }
 );
 
 const Listing = mongoose.model('Listing', listingSchema);
